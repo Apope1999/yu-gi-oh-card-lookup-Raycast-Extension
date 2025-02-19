@@ -16,7 +16,7 @@ type Card = {
 }
 
 export default function Command() {
-  const [searchText, setSearchText] = useState("Blue-Eyes");
+  const [searchText, setSearchText] = useState("");
   const { isLoading, data } = useFetch<Card[]>(`https://db.ygoprodeck.com/api/v7/cardinfo.php?fname=${searchText}`,
   {
     keepPreviousData: true,
