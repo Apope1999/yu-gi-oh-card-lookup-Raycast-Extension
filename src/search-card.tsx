@@ -22,7 +22,7 @@ export default function Command() {
     keepPreviousData: true,
     parseResponse: async (response) => {
       const json = await response.json();
-      return json.data;
+      return json.data ?? [];
     },
     mapResult: (result) => ({
       data: result.map((card) => ({
