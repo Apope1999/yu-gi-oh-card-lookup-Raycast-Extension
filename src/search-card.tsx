@@ -46,7 +46,7 @@ export default function Command() {
   console.log(data)
 
   return (
-    <List isLoading={isLoading} searchText={searchText} onSearchTextChange={setSearchText} throttle>
+    <List isLoading={isLoading} searchBarPlaceholder={"Search Card..."} searchText={searchText} onSearchTextChange={setSearchText} throttle>
       {data?.map((card) => (
         <List.Item key={card.id} title={card.name} />
       ))}
