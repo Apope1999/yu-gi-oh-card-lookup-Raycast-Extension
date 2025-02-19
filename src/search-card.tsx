@@ -20,6 +20,7 @@ export default function Command() {
   const { isLoading, data } = useFetch<Card[]>(`https://db.ygoprodeck.com/api/v7/cardinfo.php?fname=${searchText}`,
   {
     keepPreviousData: true,
+    execute: searchText.trim().length > 3,
     parseResponse: async (response) => {
       const json = await response.json();
       return json.data ?? [];
