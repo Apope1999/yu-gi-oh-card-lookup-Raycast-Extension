@@ -18,6 +18,10 @@ export function CardList({ isLoading, data, searchText, setSearchText }: any) {
       searchText={searchText}
       onSearchTextChange={setSearchText}
       throttle
+      searchBarAccessory={
+        <List.Dropdown tooltip="Filter by Card Type" storeValue onChange={setSelectedType}>
+        </List.Dropdown>
+      }
     >
       {filteredData?.map((card: Card) => (
         <List.Item
