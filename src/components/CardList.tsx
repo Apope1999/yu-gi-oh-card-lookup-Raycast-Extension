@@ -1,7 +1,8 @@
-import { List, ActionPanel, Action } from "@raycast/api";
+import { List, ActionPanel, Action, Icon, Color } from "@raycast/api";
 import { CardDetail } from "./CardDetail";
 import { Card } from "../types/Card";
 import { useState } from "react";
+import { typeColors } from "../types/typeColors";
 
 
 export function CardList({ isLoading, data, searchText, setSearchText }: any) {
@@ -56,6 +57,15 @@ export function CardList({ isLoading, data, searchText, setSearchText }: any) {
         <List.Item
           key={card.id}
           title={card.name}
+          accessories={[
+            { 
+              tag: { 
+                value: card.type, 
+                color: typeColors[card.type] || Color.PrimaryText
+              },
+              icon: Icon.CircleFilled 
+            },
+          ]}
           actions={
             <ActionPanel>
               <Action.Push title="Show Card Details" target={<CardDetail card={card} />} />
