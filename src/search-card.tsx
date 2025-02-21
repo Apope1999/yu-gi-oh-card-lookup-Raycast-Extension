@@ -15,6 +15,19 @@ type Card = {
   ygoprodeck_url: string;
 }
 
+function ShowCard({ card }: { card: Card }) {
+  return <Detail markdown={`# ${card.name}
+  ${card.desc}  
+  ${card.type}  
+  ${card.atk}  
+  ${card.def}  
+  ${card.level}  
+  ${card.attribute}  
+  ${card.archetype}  
+  ${card.ygoprodeck_url}
+  `}/>;
+}
+
 export default function Command() {
   const [searchText, setSearchText] = useState("");
   const { isLoading, data } = useFetch<Card[]>(`https://db.ygoprodeck.com/api/v7/cardinfo.php?fname=${searchText}`,
