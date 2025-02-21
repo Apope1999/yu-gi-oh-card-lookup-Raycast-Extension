@@ -61,7 +61,15 @@ export default function Command() {
   return (
     <List isLoading={isLoading} searchBarPlaceholder={"Search Card..."} searchText={searchText} onSearchTextChange={setSearchText} throttle>
       {data?.map((card) => (
-        <List.Item key={card.id} title={card.name} />
+        <List.Item 
+          key={card.id} 
+          title={card.name} 
+          actions={
+            <ActionPanel>
+              <Action.Push title="Show Card Details" target={<ShowCard card={card} />} />
+            </ActionPanel>
+          }  
+        />
       ))}
     </List>
   );
