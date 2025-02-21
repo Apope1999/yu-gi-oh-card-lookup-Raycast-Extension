@@ -1,19 +1,8 @@
 import { useState } from "react";
 import { ActionPanel, Detail, List, Action, Icon } from "@raycast/api";
 import { useFetch } from "@raycast/utils";
+import { Card } from "./types/Card";
 
-type Card = {
-  id: string;
-  name: string;
-  type: string;
-  desc: string;
-  atk: number;
-  def: number;
-  level: number;
-  attribute: string;
-  archetype: string;
-  ygoprodeck_url: string;
-}
 
 function ShowCard({ card }: { card: Card }) {
   return <Detail markdown={`# ${card.name}
