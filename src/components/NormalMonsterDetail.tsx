@@ -1,6 +1,7 @@
 import { Action, ActionPanel, Color, Detail } from "@raycast/api";
 import { Card } from "../types/Card";
 import { typeColors } from "../types/typeColors";
+import { getAttributeIcon } from "../utils/attributeIcons";
 
 export function NormalMonsterDetail({ card }: { card: Card }) {
     return (
@@ -21,7 +22,7 @@ export function NormalMonsterDetail({ card }: { card: Card }) {
               </Detail.Metadata.TagList>
               <Detail.Metadata.Separator />
               <Detail.Metadata.Label title="Level" text={`${card.level}`} icon={{source: "level-icon.png"}} />
-              <Detail.Metadata.Label title="Attribute" text={`${card.attribute}`} />
+              <Detail.Metadata.Label title="Attribute" text={`${card.attribute}`} icon={{ source: getAttributeIcon(card.attribute) }}  />
               <Detail.Metadata.Label title="Archetype" text={`${card.archetype}`} />
             </Detail.Metadata>
           }
