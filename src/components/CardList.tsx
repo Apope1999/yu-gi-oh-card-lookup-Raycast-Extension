@@ -3,7 +3,7 @@ import { CardDetail } from "./CardDetail";
 import { Card } from "../types/Card";
 import { useState } from "react";
 import { typeColors } from "../types/typeColors";
-import { NormalMonsterDetail } from "./NormalMonsterDetail";
+import { NormalMonsterDetail } from "./MonsterDetail";
 
 
 export function CardList({ isLoading, data, searchText, setSearchText }: any) {
