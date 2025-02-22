@@ -1,4 +1,3 @@
-import { Action, ActionPanel, Detail } from "@raycast/api";
 import { Action, ActionPanel, Color, Detail } from "@raycast/api";
 import { Card } from "../types/Card";
 import { typeColors } from "../types/typeColors";
