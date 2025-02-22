@@ -3,6 +3,7 @@ import { CardDetail } from "./CardDetail";
 import { Card } from "../types/Card";
 import { useState } from "react";
 import { typeColors } from "../types/typeColors";
+import { NormalMonsterDetail } from "./NormalMonsterDetail";
 
 
 export function CardList({ isLoading, data, searchText, setSearchText }: any) {
@@ -11,6 +12,17 @@ export function CardList({ isLoading, data, searchText, setSearchText }: any) {
 
   // Filter the data based on the selected type
   const filteredData = selectedType === "All" ? data : data?.filter((card: Card) => card.type === selectedType);
+
+    // Function to return the correct component based on card type
+    const getDetailView = (card: Card) => {
+      switch (card.type) {
+        case "Normal Monster":
+          return <NormalMonsterDetail card={card} />;
+        // Add cases for other card types here
+        default:
+          return <CardDetail card={card} />; // Default to Normal Monster view for now
+      }
+    };  
 
   return (
     <List
@@ -68,7 +80,7 @@ export function CardList({ isLoading, data, searchText, setSearchText }: any) {
           ]}
           actions={
             <ActionPanel>
-              <Action.Push title="Show Card Details" target={<CardDetail card={card} />} />
+              <Action.Push title="Show Card Details" target={getDetailView(card)} />
             </ActionPanel>
           }
         />
