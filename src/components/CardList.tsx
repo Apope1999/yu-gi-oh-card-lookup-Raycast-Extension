@@ -73,7 +73,7 @@ export function CardList({ isLoading, data, searchText, setSearchText }: any) {
             { 
               tag: { 
                 value: card.type, 
-                color: typeColors[card.type] || Color.PrimaryText
+                color: typeColors[card.frameType] || Color.PrimaryText
               },
               icon: Icon.CircleFilled 
             },

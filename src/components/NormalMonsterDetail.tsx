@@ -18,7 +18,7 @@ export function NormalMonsterDetail({ card }: { card: Card }) {
               <Detail.Metadata.Label title="Attack ⚔️" text={`${card.atk}`} />
               <Detail.Metadata.Label title="Defense 🛡️" text={`${card.def}`} />
               <Detail.Metadata.TagList title="Card Type">
-                <Detail.Metadata.TagList.Item text={`${card.type}`} color={typeColors[card.type] || Color.PrimaryText} />
+                <Detail.Metadata.TagList.Item text={`${card.type}`} color={typeColors[card.frameType] || Color.PrimaryText} />
               </Detail.Metadata.TagList>
               <Detail.Metadata.Separator />
               <Detail.Metadata.Label title="Level" text={`${card.level}`} icon={{source: "level-icon.png"}} />
