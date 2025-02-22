@@ -3,7 +3,7 @@ import { CardDetail } from "./CardDetail";
 import { Card } from "../types/Card";
 import { useState } from "react";
 import { typeColors } from "../types/typeColors";
-import { NormalMonsterDetail } from "./MonsterDetail";
+import { MonsterDetail } from "./MonsterDetail";
 
 
 export function CardList({ isLoading, data, searchText, setSearchText }: any) {
@@ -17,7 +17,7 @@ export function CardList({ isLoading, data, searchText, setSearchText }: any) {
     const getDetailView = (card: Card) => {
       switch (card.type) {
         case "Normal Monster":
-          return <NormalMonsterDetail card={card} />;
+          return <MonsterDetail card={card} />;
         // Add cases for other card types here
         default:
           return <CardDetail card={card} />; // Default to Normal Monster view for now
