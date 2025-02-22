@@ -1,5 +1,7 @@
 import { Action, ActionPanel, Detail } from "@raycast/api";
+import { Action, ActionPanel, Color, Detail } from "@raycast/api";
 import { Card } from "../types/Card";
+import { typeColors } from "../types/typeColors";
 
 export function NormalMonsterDetail({ card }: { card: Card }) {
     return (
@@ -13,10 +15,13 @@ export function NormalMonsterDetail({ card }: { card: Card }) {
           navigationTitle={`${card.name}`}
           metadata={
             <Detail.Metadata>
-              <Detail.Metadata.Label title="Attack" text={`${card.atk}`} />
-              <Detail.Metadata.Label title="Defense" text={`${card.def}`} />
+              <Detail.Metadata.Label title="Attack ⚔️" text={`${card.atk}`} />
+              <Detail.Metadata.Label title="Defense 🛡️" text={`${card.def}`} />
+              <Detail.Metadata.TagList title="Card Type">
+                <Detail.Metadata.TagList.Item text={`${card.type}`} color={typeColors[card.type] || Color.PrimaryText} />
+              </Detail.Metadata.TagList>
               <Detail.Metadata.Separator />
-              <Detail.Metadata.Label title="Level" text={`${card.level}`} />
+              <Detail.Metadata.Label title="Level" text={`${card.level}`} icon={{source: "level-icon.png"}} />
               <Detail.Metadata.Label title="Attribute" text={`${card.attribute}`} />
               <Detail.Metadata.Label title="Archetype" text={`${card.archetype}`} />
             </Detail.Metadata>
