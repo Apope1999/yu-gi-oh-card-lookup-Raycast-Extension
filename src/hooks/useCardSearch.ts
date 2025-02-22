@@ -16,7 +16,10 @@ export function useCardSearch() {
       data: result.map((card) => ({
         id: card.id.toString(),
         name: card.name,
+        typeline: card.typeline || [],
         type: card.type,
+        humanReadableCardType: card.humanReadableCardType,
+        frameType: card.frameType,
         desc: card.desc,
         atk: card.atk,
         def: card.def,
@@ -24,6 +27,8 @@ export function useCardSearch() {
         attribute: card.attribute,
         archetype: card.archetype || "N/A",
         ygoprodeck_url: card.ygoprodeck_url,
+        card_sets: card.card_sets || [],
+        card_prices: card.card_prices || [],
       })),
     }),
   });
