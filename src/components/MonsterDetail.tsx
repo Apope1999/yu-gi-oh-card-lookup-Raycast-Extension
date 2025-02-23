@@ -21,7 +21,7 @@ export function MonsterDetail({ card }: { card: Card }) {
                 <Detail.Metadata.TagList.Item text={`${card.type}`} color={typeColors[card.frameType] || Color.PrimaryText} />
               </Detail.Metadata.TagList>
               <Detail.Metadata.Separator />
-              <Detail.Metadata.Label title="Level" text={`${card.level}`} icon={{source: "level-icon.png"}} />
+              <Detail.Metadata.Label title="Level/Rank" text={`${card.level}`} icon={{source: "level-icon.png"}} />
               <Detail.Metadata.Label title="Attribute" text={`${card.attribute}`} icon={{ source: getAttributeIcon(card.attribute) }}  />
               <Detail.Metadata.Label title="Archetype" text={`${card.archetype}`} />
             </Detail.Metadata>
