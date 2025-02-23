@@ -14,20 +14,35 @@ export type CardPrice = {
   coolstuffinc_price: string;
 };
 
-export type Card = {
+export interface Card {
   id: string;
   name: string;
-  typeline: string[];
   type: string;
   humanReadableCardType: string;
   frameType: string;
   desc: string;
-  atk: number;
-  def: number;
-  level: number;
-  attribute: string;
   archetype: string;
   ygoprodeck_url: string;
   card_sets?: CardSet[];
   card_prices?: CardPrice[];
+};
+
+export interface MonsterCard extends Card {
+  typeline: string[];
+  atk: number;
+  def: number;
+  level: number;
+  attribute: string;
+};
+
+export interface PendolumCard extends MonsterCard {
+  // Attributes
+};
+
+export interface LinkCard extends MonsterCard {
+  // Attributes
+};
+
+export interface SpellTrapCard extends Card {
+  // Attributes
 };
