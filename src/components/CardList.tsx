@@ -15,10 +15,29 @@ export function CardList({ isLoading, data, searchText, setSearchText }: any) {
 
     // Function to return the correct component based on card type
     const getDetailView = (card: Card) => {
-      switch (card.type) {
-        case "Normal Monster":
+      switch (card.frameType) {
+        case "normal":
           return <MonsterDetail card={card} />;
-        // Add cases for other card types here
+        case "effect":
+          return <MonsterDetail card={card} />;
+        case "ritual":
+          return <MonsterDetail card={card} />;
+        case "fusion":
+          return <MonsterDetail card={card} />;
+        case "synchro":
+          return <MonsterDetail card={card} />;
+        case "xyz":
+          return <MonsterDetail card={card} />;
+        case "link":
+          return <CardDetail card={card} />; //TODO
+          //TODO
+          // normal_pendulum
+          // effect_pendulum
+          // ritual_pendulum
+          // fusion_pendulum
+          // synchro_pendulum
+          // xyz_pendulum
+        
         default:
           return <CardDetail card={card} />; // Default to Normal Monster view for now
       }
