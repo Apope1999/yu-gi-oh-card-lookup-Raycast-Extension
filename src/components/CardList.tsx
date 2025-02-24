@@ -1,6 +1,6 @@
 import { List, ActionPanel, Action, Icon, Color } from "@raycast/api";
 import { CardDetail } from "./CardDetail";
-import { Card } from "../types/Card";
+import { Card, LinkCard, MonsterCard, PendulumCard } from "../types/Card";
 import { useState } from "react";
 import { typeColors } from "../types/typeColors";
 import { MonsterDetail } from "./MonsterDetail";
@@ -14,34 +14,35 @@ export function CardList({ isLoading, data, searchText, setSearchText }: any) {
   const filteredData = selectedType === "All" ? data : data?.filter((card: Card) => card.type === selectedType);
 
     // Function to return the correct component based on card type
-    const getDetailView = (card: Card) => {
-      switch (card.frameType) {
-        case "normal":
-          return <MonsterDetail card={card} />;
-        case "effect":
-          return <MonsterDetail card={card} />;
-        case "ritual":
-          return <MonsterDetail card={card} />;
-        case "fusion":
-          return <MonsterDetail card={card} />;
-        case "synchro":
-          return <MonsterDetail card={card} />;
-        case "xyz":
-          return <MonsterDetail card={card} />;
-        case "link":
-          return <CardDetail card={card} />; //TODO
-          //TODO
-          // normal_pendulum
-          // effect_pendulum
-          // ritual_pendulum
-          // fusion_pendulum
-          // synchro_pendulum
-          // xyz_pendulum
-        
-        default:
-          return <CardDetail card={card} />; // Default to Normal Monster view for now
-      }
-    };  
+  const getDetailView = (card: Card) => {
+    if (
+      card.frameType === "normal" ||
+      card.frameType === "effect" ||
+      card.frameType === "ritual" ||
+      card.frameType === "fusion" ||
+      card.frameType === "synchro" ||
+      card.frameType === "xyz"
+    ) {
+      return <MonsterDetail card={card as MonsterCard} />;
+    }
+
+    if (card.frameType === "link") {
+      return <CardDetail card={card as LinkCard} />; //TODO
+    }
+
+    if (
+      card.frameType === "normal_pendulum" ||
+      card.frameType === "effect_pendulum" ||
+      card.frameType === "ritual_pendulum" ||
+      card.frameType === "fusion_pendulum" ||
+      card.frameType === "synchro_pendulum" ||
+      card.frameType === "xyz_pendulum"
+    ) {
+      return <CardDetail card={card as PendulumCard} />; //TODO: Implement proper Pendulum handling
+    }
+
+    return <CardDetail card={card} />;
+  };  
 
   return (
     <List

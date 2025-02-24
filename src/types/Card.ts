@@ -35,14 +35,20 @@ export interface MonsterCard extends Card {
   attribute: string;
 };
 
-export interface PendolumCard extends MonsterCard {
-  // Attributes
+export interface PendulumCard extends MonsterCard {
+  pend_desc: string;
+  monster_desc: string;
+  scale: number;
 };
 
-export interface LinkCard extends MonsterCard {
-  // Attributes
+export interface LinkCard extends Card {
+  typeline: string[];
+  atk: number;
+  attribute: string;
+  linkval: number;
+  linkmarkers: string[];
 };
 
 export interface SpellTrapCard extends Card {
-  // Attributes
+  race: string;
 };

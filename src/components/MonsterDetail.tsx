@@ -1,9 +1,9 @@
 import { Action, ActionPanel, Color, Detail } from "@raycast/api";
-import { Card } from "../types/Card";
+import { Card, MonsterCard } from "../types/Card";
 import { typeColors } from "../types/typeColors";
 import { getAttributeIcon } from "../utils/attributeIcons";
 
-export function MonsterDetail({ card }: { card: Card }) {
+export function MonsterDetail({ card }: { card: MonsterCard }) {
     return (
         <Detail
           markdown={`# ${card.name}\n## Card Text\n ${card.desc}\n \n[${Array.isArray(card.typeline) ? card.typeline.map(type => `**${type}**`).join("/") : `**${card.typeline}**`}]\n *** \n ## Card Price\n ${card.card_prices!
