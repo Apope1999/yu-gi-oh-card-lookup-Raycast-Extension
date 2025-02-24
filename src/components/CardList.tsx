@@ -1,10 +1,11 @@
 import { List, ActionPanel, Action, Icon, Color } from "@raycast/api";
 import { CardDetail } from "./CardDetail";
-import { Card, LinkCard, MonsterCard, PendulumCard } from "../types/Card";
+import { Card, LinkCard, MonsterCard, PendulumCard, SpellTrapCard } from "../types/Card";
 import { useState } from "react";
 import { typeColors } from "../types/typeColors";
 import { MonsterDetail } from "./MonsterDetail";
 import { PendulumDetail } from "./PendulumDetail";
+import { SpellTrapDetail } from "./SpellTrapDetail";
 
 
 export function CardList({ isLoading, data, searchText, setSearchText }: any) {
@@ -40,6 +41,13 @@ export function CardList({ isLoading, data, searchText, setSearchText }: any) {
       card.frameType === "xyz_pendulum"
     ) {
       return <PendulumDetail card={card as PendulumCard} />; //TODO: Implement proper Pendulum handling
+    }
+
+    if (
+      card.frameType === "spell" ||
+      card.frameType === "trap"
+    ) {
+      return <SpellTrapDetail card={card as SpellTrapCard} />
     }
 
     return <CardDetail card={card} />;
