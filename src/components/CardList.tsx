@@ -4,6 +4,7 @@ import { Card, LinkCard, MonsterCard, PendulumCard } from "../types/Card";
 import { useState } from "react";
 import { typeColors } from "../types/typeColors";
 import { MonsterDetail } from "./MonsterDetail";
+import { PendulumDetail } from "./PendulumDetail";
 
 
 export function CardList({ isLoading, data, searchText, setSearchText }: any) {
@@ -38,7 +39,7 @@ export function CardList({ isLoading, data, searchText, setSearchText }: any) {
       card.frameType === "synchro_pendulum" ||
       card.frameType === "xyz_pendulum"
     ) {
-      return <CardDetail card={card as PendulumCard} />; //TODO: Implement proper Pendulum handling
+      return <PendulumDetail card={card as PendulumCard} />; //TODO: Implement proper Pendulum handling
     }
 
     return <CardDetail card={card} />;
