@@ -95,7 +95,13 @@ export function CardList({ isLoading, data, searchText, setSearchText }: any) {
         </List.Dropdown>
       }
     >
-      {filteredData?.map((card: Card) => (
+      {searchText === "" && (!filteredData || filteredData.length === 0) ? (
+      <List.EmptyView
+        icon={{ source: "card-back.png" }} 
+        title="Try searching for a card."
+      />
+    ) : (
+      filteredData?.map((card: Card) => (
         <List.Item
           key={card.id}
           title={card.name}
@@ -114,7 +120,8 @@ export function CardList({ isLoading, data, searchText, setSearchText }: any) {
             </ActionPanel>
           }
         />
-      ))}
+      ))
+    )}
     </List>
   );
 }
