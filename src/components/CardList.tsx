@@ -6,6 +6,7 @@ import { typeColors } from "../types/typeColors";
 import { MonsterDetail } from "./MonsterDetail";
 import { PendulumDetail } from "./PendulumDetail";
 import { SpellTrapDetail } from "./SpellTrapDetail";
+import { LinkDetail } from "./LinkDetail";
 
 
 export function CardList({ isLoading, data, searchText, setSearchText }: any) {
@@ -29,7 +30,7 @@ export function CardList({ isLoading, data, searchText, setSearchText }: any) {
     }
 
     if (card.frameType === "link") {
-      return <CardDetail card={card as LinkCard} />; //TODO
+      return <LinkDetail card={card as LinkCard} />; //TODO
     }
 
     if (
