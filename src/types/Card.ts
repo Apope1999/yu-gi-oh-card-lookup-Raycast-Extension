@@ -25,7 +25,7 @@ export interface Card {
   ygoprodeck_url: string;
   card_sets?: CardSet[];
   card_prices?: CardPrice[];
-};
+}
 
 export interface MonsterCard extends Card {
   typeline: string[];
@@ -33,13 +33,13 @@ export interface MonsterCard extends Card {
   def: number;
   level: number;
   attribute: string;
-};
+}
 
 export interface PendulumCard extends MonsterCard {
   pend_desc: string;
   monster_desc: string;
   scale: number;
-};
+}
 
 export interface LinkCard extends Card {
   typeline: string[];
@@ -47,8 +47,8 @@ export interface LinkCard extends Card {
   attribute: string;
   linkval: number;
   linkmarkers: string[];
-};
+}
 
 export interface SpellTrapCard extends Card {
   race: string;
-};
+}

@@ -22,7 +22,7 @@ export function useCardSearch() {
           card.frameType === "xyz" ||
           card.frameType === "ritual"
         ) {
-          const monsterCard = card as MonsterCard
+          const monsterCard = card as MonsterCard;
           return {
             id: monsterCard.id.toString(),
             name: monsterCard.name,
@@ -41,14 +41,16 @@ export function useCardSearch() {
             attribute: monsterCard.attribute,
           } as MonsterCard;
         }
-    
-        if (card.frameType === "normal_pendulum" ||
+
+        if (
+          card.frameType === "normal_pendulum" ||
           card.frameType === "effect_pendulum" ||
           card.frameType === "ritual_pendulum" ||
           card.frameType === "fusion_pendulum" ||
           card.frameType === "synchro_pendulum" ||
-          card.frameType === "xyz_pendulum") {
-            const pendulumCard = card as PendulumCard
+          card.frameType === "xyz_pendulum"
+        ) {
+          const pendulumCard = card as PendulumCard;
           return {
             id: pendulumCard.id.toString(),
             name: pendulumCard.name,
@@ -67,12 +69,12 @@ export function useCardSearch() {
             attribute: pendulumCard.attribute,
             pend_desc: pendulumCard.pend_desc,
             monster_desc: pendulumCard.monster_desc,
-            scale: pendulumCard.scale
+            scale: pendulumCard.scale,
           } as PendulumCard;
         }
-    
+
         if (card.frameType === "link") {
-          const linkCard = card as LinkCard
+          const linkCard = card as LinkCard;
           return {
             id: linkCard.id.toString(),
             name: linkCard.name,
@@ -88,12 +90,12 @@ export function useCardSearch() {
             atk: linkCard.atk,
             attribute: linkCard.attribute,
             linkval: linkCard.linkval,
-            linkmarkers: linkCard.linkmarkers || []
+            linkmarkers: linkCard.linkmarkers || [],
           } as LinkCard;
         }
-    
+
         if (card.frameType === "spell" || card.frameType === "trap") {
-          const spellTrapCard = card as SpellTrapCard
+          const spellTrapCard = card as SpellTrapCard;
           return {
             id: spellTrapCard.id.toString(),
             name: spellTrapCard.name,
@@ -107,7 +109,7 @@ export function useCardSearch() {
             race: spellTrapCard.race,
           } as SpellTrapCard;
         }
-    
+
         // Default fallback for unknown frame types
         return {
           id: card.id.toString(),

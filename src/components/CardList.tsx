@@ -16,13 +16,12 @@ interface CardListProps {
 }
 
 export function CardList({ isLoading, data, searchText, setSearchText }: CardListProps) {
-
   const [selectedType, setSelectedType] = useState("All");
 
   // Filter the data based on the selected type
   const filteredData = selectedType === "All" ? data : data?.filter((card: Card) => card.type === selectedType);
 
-    // Function to return the correct component based on card type
+  // Function to return the correct component based on card type
   const getDetailView = (card: Card) => {
     if (
       card.frameType === "normal" ||
@@ -50,15 +49,12 @@ export function CardList({ isLoading, data, searchText, setSearchText }: CardLis
       return <PendulumDetail card={card as PendulumCard} />; //TODO: Implement proper Pendulum handling
     }
 
-    if (
-      card.frameType === "spell" ||
-      card.frameType === "trap"
-    ) {
-      return <SpellTrapDetail card={card as SpellTrapCard} />
+    if (card.frameType === "spell" || card.frameType === "trap") {
+      return <SpellTrapDetail card={card as SpellTrapCard} />;
     }
 
     return <CardDetail card={card} />;
-  };  
+  };
 
   return (
     <List
@@ -102,32 +98,29 @@ export function CardList({ isLoading, data, searchText, setSearchText }: CardLis
       }
     >
       {searchText === "" && (!filteredData || filteredData.length === 0) ? (
-      <List.EmptyView
-        icon={{ source: "card-back.png" }} 
-        title="Try searching for a card."
-      />
-    ) : (
-      filteredData?.map((card: Card) => (
-        <List.Item
-          key={card.id}
-          title={card.name}
-          accessories={[
-            { 
-              tag: { 
-                value: card.type, 
-                color: typeColors[card.frameType] || Color.PrimaryText
+        <List.EmptyView icon={{ source: "card-back.png" }} title="Try searching for a card." />
+      ) : (
+        filteredData?.map((card: Card) => (
+          <List.Item
+            key={card.id}
+            title={card.name}
+            accessories={[
+              {
+                tag: {
+                  value: card.type,
+                  color: typeColors[card.frameType] || Color.PrimaryText,
+                },
+                icon: Icon.CircleFilled,
               },
-              icon: Icon.CircleFilled 
-            },
-          ]}
-          actions={
-            <ActionPanel>
-              <Action.Push title="Show Card Details" target={getDetailView(card)} />
-            </ActionPanel>
-          }
-        />
-      ))
-    )}
+            ]}
+            actions={
+              <ActionPanel>
+                <Action.Push title="Show Card Details" target={getDetailView(card)} />
+              </ActionPanel>
+            }
+          />
+        ))
+      )}
     </List>
   );
 }
