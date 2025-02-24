@@ -1,5 +1,5 @@
 import { Action, ActionPanel, Color, Detail } from "@raycast/api";
-import { Card, MonsterCard } from "../types/Card";
+import { MonsterCard } from "../types/Card";
 import { typeColors } from "../types/typeColors";
 import { getAttributeIcon } from "../utils/attributeIcons";
 
