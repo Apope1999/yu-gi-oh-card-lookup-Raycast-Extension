@@ -8,8 +8,14 @@ import { PendulumDetail } from "./PendulumDetail";
 import { SpellTrapDetail } from "./SpellTrapDetail";
 import { LinkDetail } from "./LinkDetail";
 
+interface CardListProps {
+  isLoading: boolean;
+  data: Card[] | undefined;
+  searchText: string;
+  setSearchText: (text: string) => void;
+}
 
-export function CardList({ isLoading, data, searchText, setSearchText }: any) {
+export function CardList({ isLoading, data, searchText, setSearchText }: CardListProps) {
 
   const [selectedType, setSelectedType] = useState("All");
 
